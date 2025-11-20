@@ -1,0 +1,236 @@
+<div class="pnf-container">
+    <style>
+        .pnf-container {
+            background: #FFF8F0;
+            color: #4b3c33;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* Falling crumbs */
+        .crumb {
+            position: absolute;
+            color: #b45309;
+            opacity: 0.2;
+            animation: fall 4s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Navbar */
+        .nav {
+            width: 100%;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d97706;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Centered main content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Toaster illustration */
+        .toaster-wrapper {
+            width: 260px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .smoke {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.5);
+            width: 20px;
+            height: 20px;
+            background: #d3d3d3;
+            border-radius: 50%;
+            opacity: 0;
+            animation: smokeRise 4s ease-out infinite;
+        }
+
+        .smoke.s1 { animation-delay: 1.2s; }
+        .smoke.s2 { animation-delay: 1.4s; width: 26px; height: 26px; }
+        .smoke.s3 { animation-delay: 1.6s; width: 22px; height: 22px; }
+
+        @keyframes smokeRise {
+            0% { opacity: 0; transform: translateY(0) scale(0.6); }
+            20% { opacity: 0.6; transform: translateY(-20px) scale(1); }
+            100% { opacity: 0; transform: translateY(-60px) scale(2); }
+        }
+
+        .toaster-body {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: #e0e0e0;
+            border: 4px solid #c4c4c4;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .toast-slot {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .toast {
+            width: 100px;
+            height: 100px;
+            background: #5C4033;
+            border: 4px solid #3E2723;
+            border-radius: 10px 10px 4px 4px;
+            margin: auto;
+            animation: popUp 4s cubic-bezier(0.175,0.885,0.32,1.275) infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eyes {
+            display: flex;
+            gap: 10px;
+        }
+
+        .eye {
+            width: 6px;
+            height: 6px;
+            background: #3E2723;
+            border-radius: 50%;
+        }
+
+        .mouth {
+            width: 30px;
+            height: 12px;
+            border-top: 4px solid #3E2723;
+            border-radius: 50% 50% 0 0;
+            margin-top: 5px;
+        }
+
+        @keyframes popUp {
+            0%, 10% { transform: translateY(60%); }
+            15% { transform: translateY(60%) scale(0.9, 1.1); }
+            20% { transform: translateY(-30%); }
+            30%, 80% { transform: translateY(0); }
+            90%, 100% { transform: translateY(60%); }
+        }
+
+        .heading {
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .sub {
+            font-size: 18px;
+            max-width: 400px;
+            color: #6b6b6b;
+            margin-bottom: 25px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-main {
+            padding: 12px 26px;
+            background: #d97706;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-main:active {
+            transform: translateY(2px);
+        }
+
+        .btn-outline {
+            padding: 12px 26px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #d1d1d1;
+            color: #555;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #f3f3f3;
+        }
+    </style>
+
+    <!-- Crumbs -->
+    <div class="crumb" style="left: 10%; top: 0; font-size: 20px; animation-duration: 4s;">.</div>
+    <div class="crumb" style="left: 25%; top: 0; font-size: 16px; animation-duration: 5s; animation-delay: 1s;">.</div>
+    <div class="crumb" style="right: 15%; top: 0; font-size: 26px; animation-duration: 4.5s; animation-delay: 2s;">.</div>
+
+    <!-- Navbar -->
+    <div class="nav">ChefMate</div>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="toaster-wrapper">
+            <div class="smoke s1"></div>
+            <div class="smoke s2"></div>
+            <div class="smoke s3"></div>
+
+            <div class="toaster-body"></div>
+
+            <div class="toast-slot">
+                <div class="toast">
+                    <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="mouth"></div>
+                    <div class="toast-text" style="color:#EFEBE9; font-weight:900; font-size:22px;">404</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heading">Well, this is burnt.</div>
+        <div class="sub">The recipe you're looking for is crispy, charred, and completely gone.</div>
+
+        <div class="btn-row">
+            <button routerLink="/" class="btn-main">Back to Home</button>
+        </div>
+    </div>
+</div>

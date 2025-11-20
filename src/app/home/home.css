@@ -1,0 +1,13 @@
+.scroll-text {
+    white-space: nowrap;
+    display: inline-block;
+    animation: scroll-left 26s linear infinite;
+}
+@keyframes scroll-left {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

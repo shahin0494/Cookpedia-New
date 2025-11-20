@@ -1,0 +1,57 @@
+<app-header />
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h4>Filter</h4>
+            <button (click)="getAllRecipes() " class="btn border mb-2 mt-5">All</button>
+            <br>
+            <!-- cuisine dropdown -->
+            <button class="btn border dropdown-toggle" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Cuisine Type
+            </button>
+            <div class="collapse mt-1" id="collapseExample">
+                <!-- duplicate -->
+               @for (cuisine of cuisineArray; track $index) {
+                 <button class="btn border border-success  m-1">{{cuisine}}</button>
+               }
+            </div>
+            <!-- meal type dropdown -->
+            <br>
+            <!-- cuisine dropdown -->
+            <button class="btn border dropdown-toggle mt-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                Meal Type
+            </button>
+            <div class="collapse  mt-1" id="collapseExample1">
+                <!-- duplicate -->
+               @for (meal of mealArray; track $index) {
+                 <button class="btn border border-success m-1">{{meal}}</button>
+               }
+            </div>
+
+        </div>
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>All Recipies</h1>
+                <input type="text" placeholder="Find your Recipe" class="form-control w-50">
+            </div>
+            <div class="row">
+                @for (item of allRecipes; track $index) {
+                <div class="col-lg-4">
+                    <div (click)="navigateView(item._id)" class="p-2 border  mt-3 mb-3 rounded">
+                        <img loading="lazy" width="100%" class="card-img-top rounded" [src]="item?.image" alt="recipe">
+                        <div class="card-body mt-2 ">
+                            <hr>
+                            <h3 class="recipe name">{{item?.name}}</h3> 
+                            
+                            <p class="recipe text-secondary name">{{item?.cuisine}}</p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer />
