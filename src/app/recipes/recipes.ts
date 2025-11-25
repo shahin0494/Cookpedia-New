@@ -3,20 +3,25 @@ import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 import { ApiService } from '../services/api-service';
 import { Router } from '@angular/router';
+import { SearchPipe } from '../pipes/search-pipe';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-recipies',
-  imports: [Header, Footer],
+  imports: [Header, Footer, SearchPipe, FormsModule, NgxPaginationModule],
   templateUrl: './recipes.html',
   styleUrl: './recipes.css',
 })
 export class Recipies {
+  p:number = 1
   allRecipes: any = []
   dummyAllRecipe: any = []
   api = inject(ApiService)
   router = inject(Router)
   cuisineArray: any = []
   mealArray: any = []
+  searchKey: string = ""
 
   ngOnInit() {
     this.getAllRecipes()
@@ -45,6 +50,8 @@ export class Recipies {
   // filter recipe
   filterRecipe(key: string, value: string) {
     this.allRecipes = this.dummyAllRecipe.filter((item: any) => item[key] == value)
+    console.log(this.allRecipes);
+
   }
 
   // navigate to view

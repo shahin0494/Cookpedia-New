@@ -1,22 +1,40 @@
-<div class="row align-items-start" style="min-height: 100vh; background-image: url(./pic1.jpg); background-repeat: no-repeat; background-size: cover;">
+<div class="row align-items-start"
+    style="min-height: 100vh; background-image: url(./pic1.jpg); background-repeat: no-repeat; background-size: cover;">
 
- 
+
 
     <div class="row align-items-center justify-content-end" style="min-height: 90vh;">
         <div class="col-md-5 d-flex justify-content-end">
-            <div class="p-4 rounded  shadow " style="background-color:#c7deabd8; margin-right: 12rem;width: 600px; height: 350px; ">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="p-4  rounded  shadow "
+                style="background-color:#c7deabd8; margin-right:12rem; width:600px; height:380px; ">
                 <div class="text-center mb-3">
-                    <h3 class="mt-" style="color: rgb(19, 43, 0);"><i class="bi bi-mortarboard"></i> Cookpedia</h3> <hr class="text-success mt-3">
+                    <h3 class="mt-" style="color: rgb(19, 43, 0);"><i class="bi bi-mortarboard"></i> Cookpedia</h3>
+                    <hr class="text-success mt-3">
                 </div>
                 <div style="margin-top: 2rem;">
-                    <input type="text" class="form-control mb-3" placeholder="Username" />
-                    <input type="email" class="form-control mb-3" placeholder="E Mail" />
-                    <input type="password" class="form-control mb-3" placeholder="Password" />
-                    <button style="background-color: #B8745E;" class="btn text-light w-100 py-2">register</button>
+                    <input formControlName="username" name="username" type="text" class="form-control mb-3" placeholder="Username" />
+                    @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+                        <div class="mb-3 text-danger">
+                            *Invalid Username
+                        </div>
+                    }
+                    <input formControlName="email" name="email" type="email" class="form-control mb-3" placeholder="E Mail" />
+                     @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+                        <div class="mb-3 text-danger">
+                            *Invalid Email
+                        </div>
+                    }
+                    <input formControlName="password" name="password" type="text" class="form-control mb-3" placeholder="Password" />
+                     @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+                        <div class="mb-3 text-danger">
+                            *Invalid password
+                        </div>
+                    }
+                    <button type="submit" style="background-color: #B8745E;" class="btn text-light w-100 py-2">register</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
 </div>
-  <app-footer />
+<app-footer />

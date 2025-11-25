@@ -1,23 +1,38 @@
-<div class="row align-items-start" style="min-height: 100vh; background-image: url(./pic1.jpg); background-repeat: no-repeat; background-size: cover">
+<div class="row align-items-start"
+    style="min-height: 100vh; background-image: url(./pic1.jpg); background-repeat: no-repeat; background-size: cover">
 
     <div class="mt-2">
-       
+
     </div>
 
     <div class="row align-items-center justify-content-end" style="min-height: 50vh;">
         <div class="col-md-5 d-flex justify-content-center">
-            <div class="p-4 rounded justify-content-center align-items-center shadow " style="background-color:rgba(255, 194, 133, 0.613); width: 600px; height: 500px; ">
+            <form (ngSubmit)="login()" [formGroup]="loginForm" class="p-4 rounded justify-content-center align-items-center shadow "
+                style="background-color:rgba(255, 194, 133, 0.613); width: 600px; height: 500px; ">
                 <div style="margin-top: 5rem;" class="text-center mb-3">
-                    <h3 class="" style="color: rgb(19, 43, 0);"><i class="bi bi-mortarboard"></i> Login</h3> <hr class="text-success mt-3">
+                    <h3 class="" style="color: rgb(19, 43, 0);"><i class="bi bi-mortarboard"></i> Login</h3>
+                    <hr class="text-success mt-3">
                 </div>
                 <div style="margin-top: 1rem;">
-                    <input type="email" class="form-control mb-3" placeholder="E Mail" />
-                    <input type="password" class="form-control mb-3" placeholder="Password" />
-                    <button style="background-color: rgb(46, 185, 46);" class="btn text-light w-100 py-2">Login</button>
+                    <input formControlName="email" name="email" type="email" class="form-control mb-3"
+                        placeholder="E Mail" />
+                    @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+                    <div class="mb-3 text-danger">
+                        *Invalid Email
+                    </div>
+                    }
+                    <input formControlName="password" name="password" type="text" class="form-control mb-3"
+                        placeholder="Password" />
+                    @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+                    <div class="mb-3 text-danger">
+                        *Invalid password
+                    </div>
+                    }
+                    <button type="submit" style="background-color: rgb(46, 185, 46);" class="btn text-light w-100 py-2">Login</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
 </div>
-  <app-footer />
+<app-footer />

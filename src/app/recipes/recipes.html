@@ -12,9 +12,10 @@
             </button>
             <div class="collapse mt-1" id="collapseExample">
                 <!-- duplicate -->
-               @for (cuisine of cuisineArray; track $index) {
-                 <button class="btn border border-success  m-1">{{cuisine}}</button>
-               }
+                @for (cuisine of cuisineArray; track $index) {
+                <button (click)="filterRecipe('cuisine',cuisine)"
+                    class="btn border border-success  m-1">{{cuisine}}</button>
+                }
             </div>
             <!-- meal type dropdown -->
             <br>
@@ -25,31 +26,39 @@
             </button>
             <div class="collapse  mt-1" id="collapseExample1">
                 <!-- duplicate -->
-               @for (meal of mealArray; track $index) {
-                 <button class="btn border border-success m-1">{{meal}}</button>
-               }
+                @for (meal of mealArray; track $index) {
+                <button (click)="filterRecipe('mealType',meal)" class="btn border border-success m-1">{{meal}}</button>
+                }
             </div>
 
         </div>
         <div class="col-lg-8">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>All Recipies</h1>
-                <input type="text" placeholder="Find your Recipe" class="form-control w-50">
+                <input [(ngModel)]="searchKey" type="text" placeholder="Find your Recipe" class="form-control w-50">
             </div>
             <div class="row">
-                @for (item of allRecipes; track $index) {
+                @for (item of allRecipes | search:searchKey | paginate: { itemsPerPage: 9, currentPage: p } ; track
+                $index) {
                 <div class="col-lg-4">
                     <div (click)="navigateView(item._id)" class="p-2 border  mt-3 mb-3 rounded">
                         <img loading="lazy" width="100%" class="card-img-top rounded" [src]="item?.image" alt="recipe">
                         <div class="card-body mt-2 ">
                             <hr>
-                            <h3 class="recipe name">{{item?.name}}</h3> 
-                            
+                            <h3 class="recipe name">{{item?.name}}</h3>
+
                             <p class="recipe text-secondary name">{{item?.cuisine}}</p>
                         </div>
                     </div>
                 </div>
                 }
+                @if ((allRecipes | search:searchKey).length==0) {
+                <p class="my-5 fs-3 text-secondary fw-bolder">Recipe Not Found 😕</p>
+                }
+            </div>
+            <div class="mb-3 text-center">
+                <!-- pagination control -->
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>
