@@ -1,1 +1,70 @@
-<p>profile works!</p>
+<app-header />
+<div class="container">
+    <div style="height: 300px;" class="bg-success mt-1 rounded row"></div>
+    <div>
+        <img width="200px" height="200px" style="border-radius: 50%; margin-top: -100px;" class="border p-2 ms-2"
+            src="https://pics.craiyon.com/2023-07-08/201236e24c1d4bac99fea96a27037b85.webp" alt="">
+    </div>
+    <h3 class="my-3">Welcome User
+        <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" class="btn "><i
+                class="fa-solid fa-pencil "></i></button>
+    </h3>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus animi quidem nisi
+        modi praesentium asperiores quae ipsa dignissimos nihil voluptates vero inventore quaerat unde est fuga, quam
+        assumenda atque deserunt.
+        Molestiae neque sint eos aliquid rem consectetur nesciunt nisi vel vitae recusandae iste asperiores placeat,
+        perspiciatis porro mollitia. Blanditiis delectus excepturi iusto tempora ullam. Perspiciatis sed debitis
+        obcaecati sunt? Quo. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem tenetur maiores nisi
+        dignissimos doloribus nam asperiores? Dolores, quasi labore. Incidunt eaque magni animi, necessitatibus
+        perferendis dolorum excepturi porro consectetur fugiat?</p>
+    <h2 class="my-3">Download Recipe List</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="p-3 ">
+                <img class=" rounded card-img-top img-fluid"
+                    src="https://pics.craiyon.com/2023-07-08/201236e24c1d4bac99fea96a27037b85.webp" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Recipe name</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer />
+<!-- off canvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fs-3" id="offcanvasExampleLabel">Profile Updation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form class="border rounded p-3">
+            <div class="text-center mb-3">
+                <input type="file" id="profile" hidden>
+                <label for="profile">
+                    <img width="50px" height="50px" style="border-radius: 50%;" class="card-img-top img-fluid"
+                        src="https://pics.craiyon.com/2023-07-08/201236e24c1d4bac99fea96a27037b85.webp" alt="">
+                    <span class="btn text-dark"><i class="fa-solid fs-1 fa-ellipsis"></i></span>
+                </label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input name="username" [(ngModel)]="username" type="text" class="form-control"
+                    id="exampleFormControlInput1" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">New Password</label>
+                <input name="password" [(ngModel)]="password" type="text" class="form-control"
+                    id="exampleFormControlInput1" placeholder="example@123">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Confirm New Password</label>
+                <input name="cpassword" [(ngModel)]="confirmPassword" type="text" class="form-control"
+                    id="exampleFormControlInput1" placeholder="example@123">
+            </div>
+            <div class="mb-3 d-grid">
+                <button class="btn btn-warning">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

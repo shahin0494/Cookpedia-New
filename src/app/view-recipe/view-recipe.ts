@@ -71,4 +71,16 @@ export class ViewRecipe {
     })
     pdf.save('recipe.pdf')
   }
+
+  // save recipe
+  saveRecipe() {
+    this.api.saveRecipeAPI(this.recipe).subscribe({
+      next: (res: any) => {
+        alert(`${res.recipeName} added to your collection ☺️🥳🎉`)
+      },
+      error: (reason: any) => {
+        alert(reason.error)
+      }
+    })
+  }
 }
