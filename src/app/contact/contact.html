@@ -1,94 +1,103 @@
-<app-header/>
+<app-header />
 <div class="container mt-3 ">
-    <div style="height: 350px;" class="bg-success rounded row align-items-center text-light  " >
+    <div style="height: 350px;" class="bg-success rounded row align-items-center text-light">
         <div class="col-lg-2"></div>
-        <div class="col-lg-8 text-center" >
-           <span style="font-size:80px; font-weight: 600;">Contact</span>
-            <p style="font-size:small; font-weight: 600;"  >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quod consequatur deserunt nulla ea tempore similique quisquam quam beatae, at hic rem exercitationem ipsum culpa. Dicta consectetur placeat repellendus dolore?</p>
+        <div class="col-lg-8 text-center">
+            <span style="font-size: 80px; font-weight: 600;">Contact</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit
+                quod consequatur deserunt nulla ea tempore similique quisquam quam beatae, at hic rem exercitationem
+                ipsum culpa. Dicta consectetur placeat repellendus dolore?</p>
         </div>
         <div class="col-lg-2">
-            
+
         </div>
     </div>
-    <div style="height: 650px;" class="row align-items-center my-5">
+    <div class="row align-items-center my-5">
         <div class="col-lg-1">
-            
+
 
         </div>
         <div class="col-lg-5">
             <h1>Get In Touch</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, perferendis quia ab rerum sequi veritatis. Eveniet vel numquam repellat porro cupiditate, dignissimos labore rem voluptas? Neque qui voluptate dolore repudiandae?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, reiciendis vitae ex dolorem porro minus neque ad voluptate eligendi consequuntur alias dicta nesciunt, unde quibusdam? Magnam natus cupiditate quia corporis.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, perferendis quia ab rerum sequi
+                veritatis. Eveniet vel numquam repellat porro cupiditate, dignissimos labore rem voluptas? Neque qui
+                voluptate dolore repudiandae?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, reiciendis vitae ex dolorem porro
+                minus neque ad voluptate eligendi consequuntur alias dicta nesciunt, unde quibusdam? Magnam natus
+                cupiditate quia corporis.</p>
             <!-- icons -->
-             <div class="d-flex">
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+            <div class="d-flex">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-solid fa-location text-success me-3 fs-5"></i>
                 </div>
                 <div>
                     <h5 class="mt-2">Address</h5>
                     <p>Cookpedia 123 Food Lane, Culinary Street Kochi, Kerala, India, 682039</p>
                 </div>
-             </div>
-             <div class="d-flex">
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+            </div>
+            <div class="d-flex">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-solid fa-phone text-success me-3 fs-5"></i>
                 </div>
                 <div>
                     <h5 class="mt-2">Phone</h5>
                     <p>9938273648</p>
                 </div>
-             </div>
-             <div class="d-flex">
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+            </div>
+            <div class="d-flex">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-solid fa-envelope text-success me-3 fs-5"></i>
                 </div>
                 <div>
                     <h5 class="mt-2">Email</h5>
                     <p>Ccookpedia@gmail.com</p>
                 </div>
-             </div>
-             <hr>
-             <h3>Follow US</h3>
-             <div class="d-flex  mt-4">
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+            </div>
+            <hr>
+            <h3>Follow US</h3>
+            <div class="d-flex  mt-4">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-brands fa-facebook-f text-success me-3 fs-5"></i>
                 </div>
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-brands fa-twitter text-success me-3 fs-5"></i>
                 </div>
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-brands fa-youtube text-success me-3 fs-5"></i>
                 </div>
-                <div  class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
+                <div class="rounded-circle tex-success d-flex justify-content-center align-items-center text-light ">
                     <i class="fa-brands fa-instagram text-success me-3 fs-5"></i>
                 </div>
-             </div>
+            </div>
         </div>
         <div class="col-lg-1"></div>
         <div class="col-lg-4">
             <form class="border rounded shadow p-5">
                 <h3>Client Testimony</h3>
                 <div class="mb-3 mt-5">
-                    <input type="text" placeholder="Name" class="form-control">
+                    <input name="name" [(ngModel)]="name" type="text" placeholder="Name" class="form-control">
                 </div>
                 <div class="mb-3 mt-2">
-                    <input type="text" placeholder="E-Mail" class="form-control">
+                    <input name="email" [(ngModel)]="email" type="text" placeholder="E-Mail" class="form-control">
                 </div>
                 <div class="mb-3 mt-2">
-                    <textarea placeholder="Message" class="form-control"></textarea>
+                    <textarea name="message" [(ngModel)]="message" placeholder="Message" class="form-control"></textarea>
                 </div>
                 <p class="my-4 text-secondary">
                     By submitting you agree to our terms and conditions
                 </p>
                 <div class="float-end">
-                    <button class="btn btn-success">Submit</button>
+                    <button (click)="addFeedback()" type="button" class="btn btn-success">Submit</button>
                 </div>
             </form>
         </div>
         <div class="col-lg-1"></div>
     </div>
     <div class="w-100 ">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31432.603850135623!2d76.34616319999999!3d10.010624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1763440026551!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31432.603850135623!2d76.34616319999999!3d10.010624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1763440026551!5m2!1sen!2sin"
+            width="100%" height="450" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
-<app-footer/>
+<app-footer />

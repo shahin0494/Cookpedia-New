@@ -24,6 +24,11 @@ export class ApiService {
     return this.http.post(`${this.serverURL}/login`, reqBody)
   }
 
+  // add feedback-user feedback
+  addFeedBackAPI(feedback: any) {
+    return this.http.post(`${this.serverURL}/user/feedback`,feedback)
+  }
+
   // append token 
   appendToken() {
     const token = sessionStorage.getItem("token")
@@ -59,13 +64,13 @@ export class ApiService {
   // get all saved recipe
   getAllSaveRecipeAPI() {
     // /recipe/saved
-    return this.http.get(`${this.serverURL}/recipes/saved`,  this.appendToken())
+    return this.http.get(`${this.serverURL}/recipes/saved`, this.appendToken())
   }
 
   // delete saved recipe
-  deleteRecipeAPI(recipeId:any) {
+  deleteRecipeAPI(recipeId: any) {
     // /recipe/:id/delete
-    return this.http.delete(`${this.serverURL}/recipes/${recipeId}/delete`,  this.appendToken())
+    return this.http.delete(`${this.serverURL}/recipes/${recipeId}/delete`, this.appendToken())
   }
 
 }
