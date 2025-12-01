@@ -79,15 +79,12 @@
     <div class="my-5 text-center ">
         <h1>Testimony</h1>
         <div class="my-5 d-flex scroll-text">
+            @for (item of allFeedbacks; track $index;let i=$index) {
             <div class=" border rounded p-4 shadow me-3 w-25 text-wrap">
-                <span class="fw-bold">Client Name</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tempore corrupti architecto ex
-                    adipisci necessitatibus, omnis qui officiis hic quos fugit iusto iure sequi beatae ullam excepturi
-                    cum ut unde.
-                    Assumenda suscipit error eligendi enim excepturi quod consequatur, ipsam esse quos veniam illum
-                    doloribus non numquam voluptas voluptates corporis quibusdam ab. Adipisci minus fugiat et
-                    distinctio, iure officiis numquam totam.</p>
+                <span class="fw-bold">{{item.name}}</span>
+                <p>{{item.message}}</p>
             </div>
+            }
         </div>
     </div>
 </div>

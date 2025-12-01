@@ -26,7 +26,12 @@ export class ApiService {
 
   // add feedback-user feedback
   addFeedBackAPI(feedback: any) {
-    return this.http.post(`${this.serverURL}/user/feedback`,feedback)
+    return this.http.post(`${this.serverURL}/user/feedback`, feedback)
+  }
+
+  // get approved feedbakcs
+  getApprovedFeedbacksAPI() {
+    return this.http.get(`${this.serverURL}/user/feedbacks/approved`)
   }
 
   // append token 
@@ -71,6 +76,26 @@ export class ApiService {
   deleteRecipeAPI(recipeId: any) {
     // /recipe/:id/delete
     return this.http.delete(`${this.serverURL}/recipes/${recipeId}/delete`, this.appendToken())
+  }
+
+  // get all users - admin
+  getAllUsersAPI() {
+    return this.http.get(`${this.serverURL}/users`, this.appendToken())
+  }
+
+  // get all downloads - admin
+  getAllDownloadsAPI() {
+    return this.http.get(`${this.serverURL}/downloads`, this.appendToken())
+  }
+
+  // get all feedbacks - admin
+  getAllFeedbacksAPI() {
+    return this.http.get(`${this.serverURL}/feedbacks`, this.appendToken())
+  }
+
+  // update feedbacks - admin
+  updateFeedbackStatusAPI(id: string, status: string) {
+    return this.http.put(`${this.serverURL}/feedbacks/${id}/edit?status=${status}`, {}, this.appendToken())
   }
 
 }

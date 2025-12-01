@@ -14,11 +14,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>Demo</th>
-                        <th>Demo@gmail.com</th>
+                   @for (users of allUsers; track $index;let i = $index) {
+                     <tr>
+                        <th>{{i+1}}</th>
+                        <th>{{users.username}}</th>
+                        <th>{{users.email}}</th>
                     </tr>
+                   }
                 </tbody>
             </table>
         </div>

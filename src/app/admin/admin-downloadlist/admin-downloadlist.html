@@ -16,13 +16,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>Demo ID</th>
-                        <th>Demo</th>
-                        <th>CUisine</th>
-                        <th>23</th>
+                   @for (item of allDownloads; track $index;let i =$index) {
+                     <tr>
+                        <th>{{i+1}}</th>
+                        <th>{{item._id}}</th>
+                        <th>{{item.recipeName}}</th>
+                        <th>{{item.recipeCuisine}}</th>
+                        <th>{{item.count}}</th>
                     </tr>
+                   }
                 </tbody>
             </table>
         </div>

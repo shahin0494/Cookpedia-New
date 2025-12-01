@@ -12,19 +12,26 @@ import { ApiService } from '../services/api-service';
 })
 export class Home {
   // property
-  allRecipes:any = []
+  allRecipes: any = []
   api = inject(ApiService)
+  allFeedbacks: any = []
   // constructor
   // lifecycle method
-  ngOnInit(){
+  ngOnInit() {
     this.getAllRecipes()
+    this.getFeedbacks()
   }
 
-  getAllRecipes(){
-    this.api.getAllRecipesAPI().subscribe((res:any)=>{
-      this.allRecipes = res.slice(0,6)
+  getAllRecipes() {
+    this.api.getAllRecipesAPI().subscribe((res: any) => {
+      this.allRecipes = res.slice(0, 6)
       console.log(this.allRecipes);
     })
   }
 
+
+  getFeedbacks() {
+    this.api.getApprovedFeedbacksAPI().subscribe((res: any) => {
+      this.allFeedbacks = res
+      console.log(this.allFeedbacks);})}
 }
