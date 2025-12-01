@@ -1,8 +1,107 @@
 <div class="container-fluid">
     <div class="row">
         <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
+            <app-admin-sidebar />
         </div>
-        <div class="col">Add-Recipe</div>
+        <div class="col-lg-10">
+            <h1 class="text-center text-secondary my-3">Add Recipe Details</h1>
+            <!-- <pre>{{ingredientsArray | json}}</pre> -->
+            <div class="container my-5 border rounded shadow p-5 text-center w-75">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.name" class="form-control"
+                                placeholder="Recipe Name">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.prepTimeMinutes" class="form-control"
+                                placeholder="Recipe preparation time in minutes">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.image" class="form-control"
+                                placeholder="Recipe URL ">
+                        </div>
+                        <div class="mb-3 ">
+                            <input [(ngModel)]="recipeDetails.cuisine" type="text" class="form-control"
+                                placeholder="Cuisine type : Asian, Italian, Indian etc">
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <textarea #ingredient class="form-control" placeholder="Add Recipe Ingredients"
+                                    id=""></textarea>
+                                <button (click)="addIngredients(ingredient)"
+                                    class="btn fw-bolder bg-primary text-light fs-4 ms-2">+</button>
+                            </div>
+                        </div>
+                        @for (item of ingredientsArray; track $index) {
+                        <div class="d-flex align-items-center mb-2">
+                            <input class="form-control" [value]="item" placeholder="Recipe Ingredients" id="" />
+                            <button (click)="removeIngredients(item)" class="btn fw-bolder fs-5 text-danger  ms-2"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.servings" class="form-control"
+                                placeholder="Recipe Servings">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.cookTimeMinutes" class="form-control"
+                                placeholder="Recipe cooking Time in minutes">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" [(ngModel)]="recipeDetails.caloriesPerServing" class="form-control"
+                                placeholder="Recipe calorie per serving ">
+                        </div>
+                        <div class="mb-3">
+
+                            <select [(ngModel)]="recipeDetails.difficulty" name="mode" id="mode"
+                                class="form-control my-2">
+                                <option hidden selected disabled>Choose Mode of Cooking</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <textarea #instructions class="form-control" placeholder="Add Recipe Instructions"
+                                    id=""></textarea>
+                                <button (click)="addInstructions(instructions)"
+                                    class="btn fw-bolder bg-primary text-light fs-4 ms-2">+</button>
+                            </div>
+                        </div>
+                        @for (item of instructionArray; track $index) {
+                        <div class="d-flex align-items-center mb-2">
+                            <input class="form-control" [value]="item" placeholder="Recipe Instructions" id="" />
+                            <button (click)="removeInstructions(item)" class="btn fw-bolder fs-5 text-danger ms-2"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="rounded border p-3">
+                        <h6 class="text-secondary">Choose Meal type of the Recipe :
+                            <span class="border rounded p-2 m-1">Meal</span>
+                        </h6>
+                        <div class="d-flex flex-wrap my-1">
+                            <!-- meal type -->
+                            @for (item of mealArray; track $index) {
+                            <div class="border rounded p-2 m-2">
+                                <label [for]="item">
+                                    <input type="checkbox"  [id]="item">
+                                    {{item}}
+                                </label>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success">Add Recipe</button>
+            </div>
+        </div>
     </div>
 </div>

@@ -9,6 +9,8 @@ import { AdminFeedbacklist } from './admin-feedbacklist/admin-feedbacklist';
 import { AdminAddrecipe } from './admin-addrecipe/admin-addrecipe';
 import { AdminDownloadlist } from './admin-downloadlist/admin-downloadlist';
 import { AdminSidebar } from './admin-sidebar/admin-sidebar';
+import { HighchartsChartComponent } from 'highcharts-angular';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AdminSidebar } from './admin-sidebar/admin-sidebar';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    HighchartsChartComponent,
+    FormsModule
+]
 })
 export class AdminModule { }
