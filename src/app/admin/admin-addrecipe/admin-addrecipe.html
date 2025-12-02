@@ -4,8 +4,12 @@
             <app-admin-sidebar />
         </div>
         <div class="col-lg-10">
-            <h1 class="text-center text-secondary my-3">Add Recipe Details</h1>
-            <!-- <pre>{{ingredientsArray | json}}</pre> -->
+            <h1 class="text-center text-secondary my-3">
+                @if (recipeID) {
+                Update
+                }@else{Add}
+                Recipe Details</h1>
+            <!-- <pre>{{selectedMealLabelArray | json}}</pre> -->
             <div class="container my-5 border rounded shadow p-5 text-center w-75">
                 <div class="row">
                     <div class="col-md-6">
@@ -85,14 +89,23 @@
                 <div class="mb-3">
                     <div class="rounded border p-3">
                         <h6 class="text-secondary">Choose Meal type of the Recipe :
-                            <span class="border rounded p-2 m-1">Meal</span>
+                            @if (recipeID) {
+                            @for (meal of selectedMealLabelArray; track $index) {
+                            <span class="border rounded p-2 m-1">{{meal}} <button (click)="removeMealType(meal)" class="btn text-danger fw-bolder">X</button> </span>
+                            }
+                            }@else{
+                            @for (meal of selectedMealLabelArray; track $index) {
+                            <span class="border rounded p-2 m-1">{{meal}}</span>
+                            }
+                            }
+
                         </h6>
                         <div class="d-flex flex-wrap my-1">
                             <!-- meal type -->
                             @for (item of mealArray; track $index) {
                             <div class="border rounded p-2 m-2">
                                 <label [for]="item">
-                                    <input type="checkbox"  [id]="item">
+                                    <input (change)="chooseMeal($event)" [name]="item" type="checkbox" [id]="item">
                                     {{item}}
                                 </label>
                             </div>
@@ -100,7 +113,11 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success">Add Recipe</button>
+                @if (recipeID) {
+                    <button (click)="editRecipe()" class="btn btn-success">Update Recipe</button>
+                }@else {
+                    <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+                }
             </div>
         </div>
     </div>

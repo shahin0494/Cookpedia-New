@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as Highcharts from 'highcharts'; 
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,40 +8,46 @@ import * as Highcharts from 'highcharts';
   styleUrl: './admin-dashboard.css',
 })
 export class AdminDashboard {
-  selected=new Date()
-   chartOptions: Highcharts.Options = {}; // Required
-   constructor(){
-    this.chartOptions={
-      chart:{
-        type:'bar'
+  selected = new Date()
+  chartOptions: Highcharts.Options = {}; // Required
+  isSideBarOpen: boolean = true
+  constructor() {
+    this.chartOptions = {
+      chart: {
+        type: 'bar'
       },
-      title:{
-        text:"Analysis of Download Recipe Based on Cuisine"
+      title: {
+        text: "Analysis of Download Recipe Based on Cuisine"
       },
-      xAxis:{
-        type:'category'
+      xAxis: {
+        type: 'category'
       },
-      yAxis:{
-        title:{
-          text:'Total Download Recipe Count'
+      yAxis: {
+        title: {
+          text: 'Total Download Recipe Count'
         }
       },
-      legend:{
-        enabled:false
+      legend: {
+        enabled: false
       },
-      credits:{
-        enabled:false
+      credits: {
+        enabled: false
       },
-      series:[{
-        name:'Cuisine',
-        colorByPoint:true,
-        type:'bar',
-         data:[{
-          name:"Itaian",
-          y:35,
-          
-         }]
+      series: [{
+        name: 'Cuisine',
+        colorByPoint: true,
+        type: 'bar',
+        data: [{
+          name: "Itaian",
+          y: 35,
+
+        }]
       }]
     }
-   }
+  }
+
+  toggleSideBAr() {
+    this.isSideBarOpen = !this.isSideBarOpen
+  }
+
 }
