@@ -16,7 +16,7 @@
                             <i class="fa-solid fa-user-astronaut fs-5"></i>
                         </button>
                         <ul class="dropdown-menu ">
-                            <li><button class="dropdown-item">Logout</button></li>
+                            <li><button (click)="logout()" class="dropdown-item">Logout</button></li>
                         </ul>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <i class="fa-solid fs-1 fa-users"></i>
                         <div class="ms-5">
                             <h4>Users</h4>
-                            <h3>142</h3>
+                            <h3>{{userCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         <i class="fa-solid fs-1 fa-bowl-food"></i>
                         <div class="ms-5">
                             <h4>Recipes</h4>
-                            <h3>142</h3>
+                            <h3>{{recipeCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <i class="fa-solid fs-1 fa-download"></i>
                         <div class="ms-5">
                             <h4>Downloads</h4>
-                            <h3>142</h3>
+                            <h3>{{downloadCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <i class="fa-solid fs-1 fa-message"></i>
                         <div class="ms-3">
                             <h4>Notifications</h4>
-                            <h6>You have <a routerLink="/admin/feedback-list">10</a>new requests</h6>
+                            <h6>You have <a routerLink="/admin/feedback-list">{{notification}}</a>new requests</h6>
                         </div>
                     </div>
                 </div>
