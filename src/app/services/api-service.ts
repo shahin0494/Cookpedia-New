@@ -8,7 +8,8 @@ import { RecipeModel } from '../admin/model/recipeModel';
 export class ApiService {
 
   http = inject(HttpClient)
-  serverURL = "http://localhost:3000"
+  //serverURL = "http://localhost:3000"
+  serverURL = "https://cookpedia-new-serverrr.onrender.com"
 
   // get all recipes
   getAllRecipesAPI() {
