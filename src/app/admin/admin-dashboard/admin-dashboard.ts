@@ -22,7 +22,9 @@ export class AdminDashboard {
   notification: number = 0
 
   constructor() {
-    this.chartOptions = {
+   if (localStorage.getItem("chart")) {
+    const chartData=JSON.parse(localStorage.getItem("chart")||"")
+     this.chartOptions = {
       chart: {
         type: 'bar'
       },
@@ -47,13 +49,10 @@ export class AdminDashboard {
         name: 'Cuisine',
         colorByPoint: true,
         type: 'bar',
-        data: [{
-          name: "Itaian",
-          y: 35,
-
-        }]
+        data: chartData
       }]
     }
+   }
   }
 
   ngOnInit() {

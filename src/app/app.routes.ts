@@ -9,11 +9,13 @@ import { Register } from './register/register';
 import { SaveRecipe } from './save-recipe/save-recipe';
 import { ViewRecipe } from './view-recipe/view-recipe';
 import { Pnf } from './pnf/pnf';
+import { routeGuard } from './guards/route-guard';
+import { adminrouteGuard } from './guards/adminroute-guard';
 
 export const routes: Routes = [
     // lazy loaded module path
     {
-        path: 'admin', loadChildren: () => import('./admin/admin-module').then(module => module.AdminModule)
+        path: 'admin', canActivate:[adminrouteGuard],loadChildren: () => import('./admin/admin-module').then(module => module.AdminModule)
     },
 
     // http://localhost:4200/
@@ -38,7 +40,7 @@ export const routes: Routes = [
 
     // http://localhost:4200/profile
     {
-        path: "profile", component: Profile, title: "Cookpedia - Profile"
+        path: "profile",canActivate:[routeGuard], component: Profile, title: "Cookpedia - Profile"
     },
 
     // http://localhost:4200/Recipes
@@ -53,12 +55,12 @@ export const routes: Routes = [
 
     // http://localhost:4200/Save-recipe
     {
-        path: "save-recipe", component: SaveRecipe, title: "Cookpedia - Recipes Collection"
+        path: "save-recipe", canActivate:[routeGuard],component: SaveRecipe, title: "Cookpedia - Recipes Collection"
     },
 
     // http://localhost:4200/recipe/:id/view
     {
-        path: "recipe/:id/view", component: ViewRecipe, title: "Cookpedia - A Recipe"
+        path: "recipe/:id/view",canActivate:[routeGuard], component: ViewRecipe, title: "Cookpedia - A Recipe"
     },
     
     // http://localhost:4200/pnf

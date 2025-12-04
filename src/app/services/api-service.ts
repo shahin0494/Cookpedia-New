@@ -114,5 +114,19 @@ export class ApiService {
     return this.http.put(`${this.serverURL}/recipe/${recipeId}`, recipe, this.appendToken())
   }
 
+  // chart info
+  getChartData() {
+    this.getAllDownloadsAPI().subscribe((res: any) => {
+      let downloadListArray: any = []
+      res.forEach((item: any) => {
+        downloadListArray.push({ name: item.recipeCuisine, y: item.count })
+      })
+      console.log(downloadListArray);
+      localStorage.setItem("chart", JSON.stringify(downloadListArray))
+
+    })
+  }
+  
+
 }
 
